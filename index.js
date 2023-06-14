@@ -3,6 +3,7 @@ const fs = require('fs');
 
 //Create function to render a README layout 
 const createREADME = (data) =>
+//The code below is responsible for structuring the README
 `
 # ${data.projectTitle}
 
@@ -86,6 +87,7 @@ inquirer
   //prompts end
   .then((responseData) => {
     const readMeContent = createREADME(responseData);
+    //this is where the README is actually created using data collected in the createREADME const from line 5
     fs.writeFile("README.md", readMeContent, (err) =>
       err ? console.log(err) : console.log('Success!')
     );
